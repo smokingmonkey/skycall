@@ -12,7 +12,7 @@ namespace _Skycall.Scripts.GameStateMachine
 {
     public class GameManager : MonoBehaviour
     {
-        public event Action<GameStates> OnGameStateUpdate;
+        public static event Action<GameStates> OnGameStateUpdate;
 
         private Ship _ship;
         private EnemyShipManager _enemyShipsManager;

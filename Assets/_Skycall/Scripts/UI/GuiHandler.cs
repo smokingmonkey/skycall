@@ -3,7 +3,6 @@ using _Skycall.Scripts.GameStateMachine;
 using _Skycall.Scripts.Models;
 using TMPro;
 using UnityEngine;
-using Zenject;
 
 namespace _Skycall.Scripts.UI
 {
@@ -15,28 +14,23 @@ namespace _Skycall.Scripts.UI
         [SerializeField] private TMP_Text scoreText;
         [SerializeField] private TMP_Text elapsedTimeText;
 
+
         private List<GameObject> _guiElements;
-        private GameManager _gameManager;
         private float _elapsedTime;
 
         private GameStates _currentState;
 
-        [Inject]
-        public void Construct(
-            GameManager gameManager)
-        {
-            _gameManager = gameManager;
-        }
+      
 
         private void Start()
         {
             _guiElements = new List<GameObject>() { waitingToStartGui, playingGui, gameOverGui };
-            _gameManager.OnGameStateUpdate += OnUpdateGui;
+            GameManager.OnGameStateUpdate += OnUpdateGui;
         }
 
         private void OnDisable()
         {
-            _gameManager.OnGameStateUpdate -= OnUpdateGui;
+            GameManager.OnGameStateUpdate -= OnUpdateGui;
         }
 
         private void OnUpdateGui(GameStates state)
@@ -77,8 +71,7 @@ namespace _Skycall.Scripts.UI
         {
             HideGui();
             _elapsedTime = 0f;
-            elapsedTimeText.SetText(_elapsedTime.ToString());
-
+            UpdateElapsedTimeText(_elapsedTime);
             waitingToStartGui.SetActive(true);
         }
 
@@ -94,6 +87,15 @@ namespace _Skycall.Scripts.UI
             HideGui();
 
             gameOverGui.SetActive(true);
+        }
+
+        void UpdateScore()
+        {
+        }
+
+        void UpdateElapsedTimeText(float elapsedTime)
+        {
+            elapsedTimeText.SetText(elapsedTime.ToString().PadLeft(5, '#'));
         }
 
         void HideGui()

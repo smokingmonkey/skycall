@@ -94,6 +94,7 @@ namespace _Skycall.Scripts.DI.Installers
             public GameObject asteroidManager;
             public GameObject enemyShipManager;
             public GameObject coinSpawner;
+            public GameObject guiHandler;
         }
     }
 }
