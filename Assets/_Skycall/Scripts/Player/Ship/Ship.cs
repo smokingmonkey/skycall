@@ -1,6 +1,9 @@
 using System;
+using _Skycall.Scripts.Helpers;
 using _Skycall.Scripts.Models;
 using _Skycall.Scripts.Player.Ship.States;
+using _Skycall.Scripts.Util;
+using ModestTree;
 using UnityEngine;
 using Zenject;
 
@@ -8,21 +11,26 @@ namespace _Skycall.Scripts.Player.Ship
 {
     public class Ship : MonoBehaviour
     {
-        [SerializeField] MeshRenderer _meshRenderer;
+        [SerializeField] private MeshRenderer _meshRenderer;
 
-        [SerializeField] ParticleSystem _particleSystem;
+        [SerializeField] private ParticleSystem _particleSystem;
 
-        [SerializeField] GameObject explosion;
+        [SerializeField] private GameObject _explosion;
 
-        ShipStateFactory _stateFactory;
-        ShipState _state;
+        private ShipStateFactory _stateFactory;
+        private ShipState _state;
+        private LevelHelper _level;
+        private Rigidbody _rigidBody;
+
 
         public event Action OnCrashed;
 
         [Inject]
-        public void Construct(ShipStateFactory stateFactory)
+        public void Construct(ShipStateFactory stateFactory, LevelHelper level)
         {
             _stateFactory = stateFactory;
+            _level = level;
+            _rigidBody = GetComponent<Rigidbody>();
         }
 
         public MeshRenderer MeshRenderer
@@ -42,6 +50,19 @@ namespace _Skycall.Scripts.Player.Ship
             set { transform.position = value; }
         }
 
+        public float Scale
+        {
+            get
+            {
+                var scale = transform.localScale;
+
+                Assert.That(scale[0] == scale[1] && scale[1] == scale[2]);
+
+                return scale[0];
+            }
+            set { transform.localScale = new Vector3(value, value, value); }
+        }
+
         public Quaternion Rotation
         {
             get { return transform.rotation; }
@@ -51,12 +72,17 @@ namespace _Skycall.Scripts.Player.Ship
         public void Start()
         {
             ChangeState(ShipStates.WaitingToStart);
-            explosion.SetActive(false);
+            _explosion.SetActive(false);
         }
 
         public void Update()
         {
             _state.Update();
+        }
+
+        private void FixedUpdate()
+        {
+            CheckForTeleport();
         }
 
         public void OnTriggerEnter(Collider other)
@@ -78,8 +104,29 @@ namespace _Skycall.Scripts.Player.Ship
 
         public void OnShipCrashed()
         {
-            explosion.SetActive(true);
+            _explosion.SetActive(true);
             OnCrashed?.Invoke();
+        }
+
+        //If the ship is about to get out of the camera applies teleport effect
+        private void CheckForTeleport()
+        {
+            if (Position.x > _level.Right + Scale)
+            {
+                transform.SetX(_level.Left - Scale);
+            }
+            else if (Position.x < _level.Left - Scale)
+            {
+                transform.SetX(_level.Right + Scale);
+            }
+            else if (Position.y < _level.Bottom - Scale)
+            {
+                transform.SetY(_level.Top + Scale);
+            }
+            else if (Position.y > _level.Top + Scale)
+            {
+                transform.SetY(_level.Bottom - Scale);
+            }
         }
     }
 }
