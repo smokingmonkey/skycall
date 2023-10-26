@@ -6,4 +6,12 @@
          Playing,
          GameOver
      }
+     
+     public enum ShipStates
+     {
+         Moving,
+         Dead,
+         WaitingToStart,
+         Count
+     }
  }

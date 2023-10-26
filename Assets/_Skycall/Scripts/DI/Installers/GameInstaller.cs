@@ -2,6 +2,8 @@ using System;
 using _Skycall.Scripts.Enemies.Asteroid;
 using _Skycall.Scripts.Enemies.EnemyShip;
 using _Skycall.Scripts.Helpers;
+using _Skycall.Scripts.Player.Ship;
+using _Skycall.Scripts.Player.Ship.States;
 using UnityEngine;
 using Zenject;
 
@@ -14,6 +16,7 @@ namespace _Skycall.Scripts.DI.Installers
         public override void InstallBindings()
         {
             InstallEnemies();
+            InstallShip();
             InstallHelpers();
         }
 
@@ -43,10 +46,24 @@ namespace _Skycall.Scripts.DI.Installers
                 .UnderTransformGroup("EnemyShips");
         }
 
+        void InstallShip()
+        {
+            Container.Bind<ShipStateFactory>().AsSingle();
+
+            // Note that the ship itself is bound using a ZenjectBinding component (see Ship
+            // game object in scene heirarchy)
+
+            Container.BindFactory<ShipStateWaitingToStart, ShipStateWaitingToStart.Factory>()
+                .WhenInjectedInto<ShipStateFactory>();
+            Container.BindFactory<ShipStateDead, ShipStateDead.Factory>().WhenInjectedInto<ShipStateFactory>();
+            Container.BindFactory<ShipStateMoving, ShipStateMoving.Factory>().WhenInjectedInto<ShipStateFactory>();
+        }
+
         void InstallHelpers()
         {
             Container.Bind<LevelHelper>().AsSingle();
         }
+
 
         [Serializable]
         public class Settings

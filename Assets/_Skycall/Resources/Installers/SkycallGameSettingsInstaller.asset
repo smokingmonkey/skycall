@@ -12,6 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9dd8e9c6f3b474692241d6bbec8e1d, type: 3}
   m_Name: SkycallGameSettingsInstaller
   m_EditorClassIdentifier: 
+  Ship:
+    StateMoving:
+      moveSpeed: 15
+      rotateSpeed: 1
+      speedForMaxEmisssion: 30
+      maxEmission: 500
+      oscillationFrequency: 1
+      oscillationAmplitude: 0.1
+    StateStarting:
+      StartOffset: {x: 0, y: 0, z: 0}
+      Amplitude: 4
+      Frequency: 5
   asteroid:
     spawner:
       minSpeed: 1
