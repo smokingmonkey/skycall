@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f9dd8e9c6f3b474692241d6bbec8e1d, type: 3}
+  m_Name: SkycallGameSettingsInstaller
+  m_EditorClassIdentifier: 
+  asteroid:
+    spawner:
+      minSpeed: 5
+      maxSpeed: 8
+      minScale: 0.7
+      maxScale: 2.5
+      startingSpawns: 13
+      maxSpawns: 36
+      maxSpawnTime: 60
+      maxMass: 7
+      minMass: 3
+    general:
+      massScaleFactor: 0.1
+      maxSpeed: 18
+  gameInstaller:
+    asteroidPrefab: {fileID: 100000, guid: 2c2b3b79cbd4f2c478dc270cc06bfa00, type: 3}

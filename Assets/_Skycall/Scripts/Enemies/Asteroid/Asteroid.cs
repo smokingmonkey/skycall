@@ -60,7 +60,7 @@ namespace _Skycall.Scripts.Enemies.Asteroid
             set { _rigidBody.velocity = value; }
         }
 
-        public void FixedUpdate()
+        public void FixedUpdateAsteroid()
         {
             // Limit speed to a maximum
             var speed = _rigidBody.velocity.magnitude;
@@ -72,7 +72,7 @@ namespace _Skycall.Scripts.Enemies.Asteroid
             }
         }
 
-        public void Update()
+        public void UpdateAsteroid()
         {
             CheckForTeleport();
         }
