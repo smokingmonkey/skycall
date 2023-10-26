@@ -42,22 +42,12 @@ namespace _Skycall.Scripts.Player.Ship.States
 
         void Move()
         {
-            var mouseRay = _mainCamera.ScreenPointToRay(Input.mousePosition);
-            var mousePos = mouseRay.origin;
-            mousePos.z = 0;
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
 
-            _lastPosition = _ship.Position;
-            _ship.Position = Vector3.Lerp(_ship.Position, mousePos,
-                Mathf.Min(1.0f, _settings.moveSpeed * Time.deltaTime));
+            Vector3 movement = new Vector3(horizontalInput, verticalInput, 0) * (_settings.moveSpeed * Time.deltaTime);
 
-            var moveDelta = _ship.Position - _lastPosition;
-            var moveDistance = moveDelta.magnitude;
-
-            if (moveDistance > 0.01f)
-            {
-                var moveDir = moveDelta / moveDistance;
-                _ship.Rotation = Quaternion.LookRotation(-moveDir);
-            }
+            _ship.Position += movement;
         }
 
         public override void Start()

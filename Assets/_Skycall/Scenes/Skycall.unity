@@ -231,6 +231,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &394895377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4553076142905009384, guid: 2f9b4a13b18ec8443ad67c2592e1c91c, type: 3}
+  m_PrefabInstance: {fileID: 1764689481}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &394895381 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4553076142886043016, guid: 2f9b4a13b18ec8443ad67c2592e1c91c, type: 3}
+  m_PrefabInstance: {fileID: 1764689481}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &539277933
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,6 +810,22 @@ PrefabInstance:
       propertyPath: _components.Array.data[0]
       value: 
       objectReference: {fileID: 248647880}
+    - target: {fileID: 4553076142905009384, guid: 2f9b4a13b18ec8443ad67c2592e1c91c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553076142911234966, guid: 2f9b4a13b18ec8443ad67c2592e1c91c, type: 3}
+      propertyPath: lifeTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553076142911234966, guid: 2f9b4a13b18ec8443ad67c2592e1c91c, type: 3}
+      propertyPath: explosionParticleSystem
+      value: 
+      objectReference: {fileID: 394895381}
+    - target: {fileID: 8970264043352879440, guid: 2f9b4a13b18ec8443ad67c2592e1c91c, type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 394895377}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f9b4a13b18ec8443ad67c2592e1c91c, type: 3}
 --- !u!1 &1907929665

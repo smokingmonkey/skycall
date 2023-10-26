@@ -12,6 +12,8 @@ namespace _Skycall.Scripts.Player.Ship
 
         [SerializeField] ParticleSystem _particleSystem;
 
+        [SerializeField] GameObject explosion;
+
         ShipStateFactory _stateFactory;
         ShipState _state;
 
@@ -49,6 +51,7 @@ namespace _Skycall.Scripts.Player.Ship
         public void Start()
         {
             ChangeState(ShipStates.WaitingToStart);
+            explosion.SetActive(false);
         }
 
         public void Update()
@@ -75,6 +78,7 @@ namespace _Skycall.Scripts.Player.Ship
 
         public void OnShipCrashed()
         {
+            explosion.SetActive(true);
             OnCrashed?.Invoke();
         }
     }

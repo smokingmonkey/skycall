@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship:
     StateMoving:
-      moveSpeed: 15
+      moveSpeed: 25
       rotateSpeed: 1
       speedForMaxEmisssion: 30
       maxEmission: 500
@@ -22,16 +22,16 @@ MonoBehaviour:
       oscillationAmplitude: 0.1
     StateStarting:
       StartOffset: {x: 0, y: 0, z: 0}
-      Amplitude: 4
+      Amplitude: 0.25
       Frequency: 5
   asteroid:
     spawner:
-      minSpeed: 5
-      maxSpeed: 8
+      minSpeed: 2
+      maxSpeed: 15
       minScale: 0.7
-      maxScale: 2.5
+      maxScale: 3.5
       startingSpawns: 3
-      maxSpawns: 10
+      maxSpawns: 15
       maxSpawnTime: 60
       maxMass: 7
       minMass: 3
