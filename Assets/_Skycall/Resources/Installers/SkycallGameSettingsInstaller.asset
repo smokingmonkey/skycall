@@ -62,9 +62,10 @@ MonoBehaviour:
   coinSettings:
     general:
       collectibleValue: 5
+      duration: 5
   coinSpawnerSettings:
     general:
       collectibleValue: 5
       startingSpawns: 5
       maxSpawns: 100
-      maxSpawnTime: 1
+      maxSpawnTime: 6

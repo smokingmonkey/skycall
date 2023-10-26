@@ -55,6 +55,8 @@ namespace _Skycall.Scripts.Player.Ship.States
             _lastPosition = _ship.Position;
 
             _ship.ParticleEmitter.gameObject.SetActive(true);
+
+            _ship.OnShipMoving();
         }
 
         public override void Dispose()

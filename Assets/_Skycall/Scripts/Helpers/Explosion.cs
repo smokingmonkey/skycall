@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 
 namespace _Skycall.Scripts.Helpers
 {
     public class Explosion : MonoBehaviour
     {
-        [SerializeField] float lifeTime;
+        public static event Action OnExplosion;
 
         [SerializeField] ParticleSystem explosionParticleSystem;
 
@@ -15,7 +16,7 @@ namespace _Skycall.Scripts.Helpers
         {
             explosionParticleSystem.Clear();
             explosionParticleSystem.Play();
-
+            OnExplosion?.Invoke();
             _startTime = Time.realtimeSinceStartup;
         }
     }

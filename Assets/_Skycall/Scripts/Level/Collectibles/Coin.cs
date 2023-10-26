@@ -15,6 +15,7 @@ namespace _Skycall.Scripts.Level.Collectibles
         public void Construct(Settings settings)
         {
             _settings = settings;
+            GameObject.Destroy(this.gameObject, settings.duration);
         }
 
         public Vector3 Position
@@ -38,7 +39,7 @@ namespace _Skycall.Scripts.Level.Collectibles
 
         public void Collect()
         {
-            GameObject.Destroy(this);
+            GameObject.Destroy(this.gameObject);
             OnCollected?.Invoke(_settings.collectibleValue);
         }
 
@@ -54,6 +55,7 @@ namespace _Skycall.Scripts.Level.Collectibles
         public class Settings
         {
             public int collectibleValue;
+            public int duration;
         }
 
         public class Factory : PlaceholderFactory<Coin>

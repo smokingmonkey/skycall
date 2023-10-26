@@ -20,7 +20,6 @@ namespace _Skycall.Scripts.Player.Ship
         private ShipStateFactory _stateFactory;
         private ShipState _state;
         private LevelHelper _level;
-        private Rigidbody _rigidBody;
 
 
         public event Action OnCrashed;
@@ -30,7 +29,6 @@ namespace _Skycall.Scripts.Player.Ship
         {
             _stateFactory = stateFactory;
             _level = level;
-            _rigidBody = GetComponent<Rigidbody>();
         }
 
         public MeshRenderer MeshRenderer
@@ -106,6 +104,11 @@ namespace _Skycall.Scripts.Player.Ship
         {
             _explosion.SetActive(true);
             OnCrashed?.Invoke();
+        }
+
+        public void OnShipMoving()
+        {
+            _explosion.SetActive(false);
         }
 
         //If the ship is about to get out of the camera applies teleport effect
