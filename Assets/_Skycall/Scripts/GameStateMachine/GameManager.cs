@@ -1,5 +1,6 @@
 using _Skycall.Scripts.Enemies.Asteroid;
 using _Skycall.Scripts.Enemies.EnemyShip;
+using _Skycall.Scripts.Level.Collectibles;
 using _Skycall.Scripts.Models;
 using _Skycall.Scripts.Player.Ship;
 using ModestTree;
@@ -14,18 +15,22 @@ namespace _Skycall.Scripts.GameStateMachine
         private EnemyShipManager _enemyShipsManager;
 
         private AsteroidManager _asteroidManager;
+        private CoinSpawner _coinSpawner;
 
         GameStates _state = GameStates.WaitingToStart;
         float _elapsedTime;
 
         [Inject]
-        public void Construct(Ship ship, AsteroidManager asteroidManager, EnemyShipManager enemyShipManager)
+        public void Construct(Ship ship, AsteroidManager asteroidManager,
+            EnemyShipManager enemyShipManager, CoinSpawner coinSpawner)
         {
             _enemyShipsManager = enemyShipManager;
 
             _ship = ship;
 
             _asteroidManager = asteroidManager;
+
+            _coinSpawner = coinSpawner;
         }
 
         public float ElapsedTime
@@ -96,6 +101,7 @@ namespace _Skycall.Scripts.GameStateMachine
             _state = GameStates.GameOver;
             _asteroidManager.Stop();
             _enemyShipsManager.Stop();
+            _coinSpawner.Stop();
         }
 
         void UpdatePlaying()
@@ -120,8 +126,9 @@ namespace _Skycall.Scripts.GameStateMachine
 
             _ship.Position = Vector3.zero;
             _elapsedTime = 0;
-            _asteroidManager.Start();
-            _enemyShipsManager.Start();
+            _asteroidManager.StartGame();
+            _enemyShipsManager.StartGame();
+            _coinSpawner.StartGame();
             _ship.ChangeState(ShipStates.Moving);
             _state = GameStates.Playing;
         }

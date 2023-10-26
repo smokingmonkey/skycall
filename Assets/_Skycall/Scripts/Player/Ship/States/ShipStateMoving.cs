@@ -64,7 +64,7 @@ namespace _Skycall.Scripts.Player.Ship.States
 
         public override void OnTriggerEnter(Collider other)
         {
-            Assert.That(other.GetComponent<Asteroid>() != null);
+            if (other.GetComponent<Asteroid>() == null) return;
             _ship.ChangeState(ShipStates.Dead);
         }
 

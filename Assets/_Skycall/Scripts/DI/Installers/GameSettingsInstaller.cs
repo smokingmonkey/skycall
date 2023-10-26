@@ -1,5 +1,6 @@
 using System;
 using _Skycall.Scripts.Enemies.EnemyShip;
+using _Skycall.Scripts.Level.Collectibles;
 using _Skycall.Scripts.Player.Ship.States;
 using UnityEngine;
 using Zenject;
@@ -12,10 +13,11 @@ namespace _Skycall.Scripts.DI.Installers
     public class GameSettingsInstaller : ScriptableObjectInstaller<GameSettingsInstaller>
     {
         public ShipSettings Ship;
-
         public AsteroidSettings asteroid;
         public EnemyShipSettings enemyShip;
         public GameInstaller.Settings gameInstaller;
+        public CoinSettings coinSettings;
+        public CoinSpawnerSettings coinSpawnerSettings;
 
         // We use nested classes here to group related settings together (Extenject)
         [Serializable]
@@ -24,6 +26,7 @@ namespace _Skycall.Scripts.DI.Installers
             public ShipStateMoving.Settings StateMoving;
             public ShipStateWaitingToStart.Settings StateStarting;
         }
+
         [Serializable]
         public class AsteroidSettings
         {
@@ -38,6 +41,18 @@ namespace _Skycall.Scripts.DI.Installers
             public EnemyShip.Settings general;
         }
 
+        [Serializable]
+        public class CoinSettings
+        {
+            public Coin.Settings general;
+        }
+
+        [Serializable]
+        public class CoinSpawnerSettings
+        {
+            public CoinSpawner.Settings general;
+        }
+
 
         public override void InstallBindings()
         {
@@ -48,6 +63,8 @@ namespace _Skycall.Scripts.DI.Installers
             Container.BindInstance(enemyShip.spawner);
             Container.BindInstance(enemyShip.general);
             Container.BindInstance(gameInstaller);
+            Container.BindInstance(coinSettings.general);
+            Container.BindInstance(coinSpawnerSettings.general);
         }
     }
 }

@@ -39,7 +39,7 @@ namespace _Skycall.Scripts.Enemies.EnemyShip
             get { return _enemyShips; }
         }
 
-        public void Start()
+        public void StartGame()
         {
             if (_started) return;
 

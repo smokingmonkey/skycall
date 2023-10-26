@@ -3,6 +3,7 @@ using _Skycall.Scripts.Enemies.Asteroid;
 using _Skycall.Scripts.Enemies.EnemyShip;
 using _Skycall.Scripts.GameStateMachine;
 using _Skycall.Scripts.Helpers;
+using _Skycall.Scripts.Level.Collectibles;
 using _Skycall.Scripts.Player.Ship;
 using _Skycall.Scripts.Player.Ship.States;
 using UnityEngine;
@@ -16,18 +17,19 @@ namespace _Skycall.Scripts.DI.Installers
 
         public override void InstallBindings()
         {
+            InstallLevelElements();
             InstallGameLogic();
             InstallEnemies();
             InstallShip();
             InstallHelpers();
         }
 
-        private void InstallGameLogic()
+        void InstallGameLogic()
         {
             Container.Bind<GameManager>().AsSingle();
         }
 
-        private void InstallEnemies()
+        void InstallEnemies()
         {
             Container.Bind<AsteroidManager>()
                 .FromComponentInNewPrefab(_settings.asteroidManager)
@@ -70,14 +72,28 @@ namespace _Skycall.Scripts.DI.Installers
             Container.Bind<LevelHelper>().AsSingle();
         }
 
+        void InstallLevelElements()
+        {
+            Container.Bind<CoinSpawner>()
+                .FromComponentInNewPrefab(_settings.coinSpawner)
+                .AsSingle();
+
+            Container.BindFactory<Coin, Coin.Factory>()
+                .FromComponentInNewPrefab(_settings.coinPrefab)
+                .WithGameObjectName("Coin")
+                .UnderTransformGroup("CoinsSpawner");
+        }
+
 
         [Serializable]
         public class Settings
         {
             public GameObject asteroidPrefab;
+            public GameObject coinPrefab;
             public GameObject enemyShipPrefab;
             public GameObject asteroidManager;
             public GameObject enemyShipManager;
+            public GameObject coinSpawner;
         }
     }
 }

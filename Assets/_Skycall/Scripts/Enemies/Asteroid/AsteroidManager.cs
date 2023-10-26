@@ -39,7 +39,7 @@ namespace _Skycall.Scripts.Enemies.Asteroid
             get { return _asteroids; }
         }
 
-        public void Start()
+        public void StartGame()
         {
             if (_started) return;
 
