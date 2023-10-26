@@ -1,3 +1,4 @@
+using System;
 using _Skycall.Scripts.Enemies.Asteroid;
 using _Skycall.Scripts.Enemies.EnemyShip;
 using _Skycall.Scripts.Level.Collectibles;
@@ -11,6 +12,8 @@ namespace _Skycall.Scripts.GameStateMachine
 {
     public class GameManager : MonoBehaviour
     {
+        public event Action<GameStates> OnGameStateUpdate;
+
         private Ship _ship;
         private EnemyShipManager _enemyShipsManager;
 
@@ -50,6 +53,7 @@ namespace _Skycall.Scripts.GameStateMachine
             Cursor.visible = false;
 
             _ship.OnCrashed += OnShipCrashed;
+            OnGameStateUpdate?.Invoke(GameStates.WaitingToStart);
         }
 
         public void OnDisable()
@@ -99,6 +103,8 @@ namespace _Skycall.Scripts.GameStateMachine
             if (_state != GameStates.Playing) return;
 
             _state = GameStates.GameOver;
+            OnGameStateUpdate?.Invoke(_state);
+
             _asteroidManager.Stop();
             _enemyShipsManager.Stop();
             _coinSpawner.Stop();
@@ -131,6 +137,7 @@ namespace _Skycall.Scripts.GameStateMachine
             _coinSpawner.StartGame();
             _ship.ChangeState(ShipStates.Moving);
             _state = GameStates.Playing;
+            OnGameStateUpdate?.Invoke(_state);
         }
     }
 }
