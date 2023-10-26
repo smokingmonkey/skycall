@@ -14,12 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroid:
     spawner:
-      minSpeed: 5
+      minSpeed: 1
       maxSpeed: 8
-      minScale: 0.7
-      maxScale: 2.5
-      startingSpawns: 13
-      maxSpawns: 36
+      minScale: 15
+      maxScale: 30
+      startingSpawns: 5
+      maxSpawns: 10
+      maxSpawnTime: 60
+      maxMass: 7
+      minMass: 3
+    general:
+      massScaleFactor: 0.1
+      maxSpeed: 18
+  enemyShip:
+    spawner:
+      minSpeed: 5
+      maxSpeed: 12
+      minScale: 1.5
+      maxScale: 1.5
+      startingSpawns: 1
+      maxSpawns: 4
       maxSpawnTime: 60
       maxMass: 7
       minMass: 3
@@ -28,3 +42,4 @@ MonoBehaviour:
       maxSpeed: 18
   gameInstaller:
     asteroidPrefab: {fileID: 100000, guid: 2c2b3b79cbd4f2c478dc270cc06bfa00, type: 3}
+    enemyShipPrefab: {fileID: 100000, guid: c5c9bd93a45df56498d799ee76bce074, type: 3}

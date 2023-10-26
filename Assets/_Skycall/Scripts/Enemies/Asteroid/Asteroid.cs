@@ -7,16 +7,12 @@ using Zenject;
 
 namespace _Skycall.Scripts.Enemies.Asteroid
 {
-    public class Asteroid : MonoBehaviour
+    public class Asteroid : EnemyBase
     {
         LevelHelper _level;
         Rigidbody _rigidBody;
         Settings _settings;
 
-        // We could just add [Inject] to the field declarations but
-        // it's often better practice to use PostInject methods
-        // Note that we can't use Constructors here because this is
-        // a MonoBehaviour
         [Inject]
         public void Construct(LevelHelper level, Settings settings)
         {
@@ -60,7 +56,7 @@ namespace _Skycall.Scripts.Enemies.Asteroid
             set { _rigidBody.velocity = value; }
         }
 
-        public void FixedUpdateAsteroid()
+        public override void FixedUpdateEnemy()
         {
             // Limit speed to a maximum
             var speed = _rigidBody.velocity.magnitude;
@@ -72,12 +68,12 @@ namespace _Skycall.Scripts.Enemies.Asteroid
             }
         }
 
-        public void UpdateAsteroid()
+        public override void UpdateEnemy()
         {
             CheckForTeleport();
         }
 
-        void CheckForTeleport()
+        protected override void CheckForTeleport()
         {
             if (Position.x > _level.Right + Scale && IsMovingInDirection(Vector3.right))
             {
@@ -110,10 +106,9 @@ namespace _Skycall.Scripts.Enemies.Asteroid
             public float massScaleFactor;
             public float maxSpeed;
         }
-        
+
         public class Factory : PlaceholderFactory<Asteroid>
         {
         }
-
     }
 }

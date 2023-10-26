@@ -13,9 +13,9 @@ namespace _Skycall.Scripts.Enemies.Asteroid
     {
         readonly List<Asteroid> _asteroids = new List<Asteroid>();
         readonly Queue<AsteroidAttributes> _cachedAttributes = new Queue<AsteroidAttributes>();
-        readonly Settings _settings;
-        readonly Asteroid.Factory _asteroidFactory;
-        readonly LevelHelper _level;
+        Settings _settings;
+        Asteroid.Factory _asteroidFactory;
+        LevelHelper _level;
    
         float _timeToNextSpawn;
         float _timeIntervalBetweenSpawns;
@@ -24,7 +24,8 @@ namespace _Skycall.Scripts.Enemies.Asteroid
         [InjectOptional]
         bool _autoSpawn = true;
    
-        public AsteroidManager(
+        [Inject]
+        public void Construct(
             Settings settings, Asteroid.Factory asteroidFactory, LevelHelper level)
         {
             _settings = settings;
@@ -55,8 +56,8 @@ namespace _Skycall.Scripts.Enemies.Asteroid
    
         // Generate the full list of size and speeds so that we can maintain an approximate average
         // this way we don't get wildly different difficulties each time the game is run
-        // For example, if we just chose speed randomly each time we spawned an asteroid, in some
-        // cases that might result in the first set of asteroids all going at max speed, or min speed
+        // For example, if we just chose speed randomly each time we spawned an enemy, in some
+        // cases that might result in the first set of enemy all going at max speed, or min speed
         void GenerateRandomAttributes()
         {
             Assert.That(_cachedAttributes.Count == 0);
@@ -114,19 +115,19 @@ namespace _Skycall.Scripts.Enemies.Asteroid
             _started = false;
         }
    
-        public void FixedTick()
+        public void FixedUpdate()
         {
             for (int i = 0; i < _asteroids.Count; i++)
             {
-                _asteroids[i].FixedUpdateAsteroid();
+                _asteroids[i].FixedUpdateEnemy();
             }
         }
    
-        public void Tick()
+        public void Update()
         {
             for (int i = 0; i < _asteroids.Count; i++)
             {
-                _asteroids[i].UpdateAsteroid();
+                _asteroids[i].UpdateEnemy();
             }
    
             if (_started && _autoSpawn)
