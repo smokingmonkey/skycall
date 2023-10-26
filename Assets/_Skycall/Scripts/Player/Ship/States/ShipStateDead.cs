@@ -5,16 +5,11 @@ namespace _Skycall.Scripts.Player.Ship.States
 {
     public class ShipStateDead : ShipState
     {
-        readonly SignalBus _signalBus;
         readonly Ship _ship;
 
 
-        public ShipStateDead(
-            Ship ship,
-            SignalBus signalBus)
+        public ShipStateDead(Ship ship)
         {
-            _signalBus = signalBus;
-
             _ship = ship;
         }
 
@@ -25,7 +20,7 @@ namespace _Skycall.Scripts.Player.Ship.States
             _ship.ParticleEmitter.gameObject.SetActive(false);
 
 
-            _signalBus.Fire<ShipCrashedSignal>();
+            _ship.OnShipCrashed();
         }
 
         public override void Dispose()
@@ -39,7 +34,6 @@ namespace _Skycall.Scripts.Player.Ship.States
         {
         }
 
-       
 
         public class Factory : PlaceholderFactory<ShipStateDead>
         {

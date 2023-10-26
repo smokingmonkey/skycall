@@ -1,3 +1,4 @@
+using System;
 using _Skycall.Scripts.Models;
 using _Skycall.Scripts.Player.Ship.States;
 using UnityEngine;
@@ -7,14 +8,14 @@ namespace _Skycall.Scripts.Player.Ship
 {
     public class Ship : MonoBehaviour
     {
-        [SerializeField]
-        MeshRenderer _meshRenderer;
+        [SerializeField] MeshRenderer _meshRenderer;
 
-        [SerializeField]
-        ParticleSystem _particleSystem;
+        [SerializeField] ParticleSystem _particleSystem;
 
         ShipStateFactory _stateFactory;
         ShipState _state;
+
+        public event Action OnCrashed;
 
         [Inject]
         public void Construct(ShipStateFactory stateFactory)
@@ -70,6 +71,11 @@ namespace _Skycall.Scripts.Player.Ship
 
             _state = _stateFactory.CreateState(state);
             _state.Start();
+        }
+
+        public void OnShipCrashed()
+        {
+            OnCrashed?.Invoke();
         }
     }
 }

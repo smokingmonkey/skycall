@@ -55,3 +55,5 @@ MonoBehaviour:
   gameInstaller:
     asteroidPrefab: {fileID: 100000, guid: 2c2b3b79cbd4f2c478dc270cc06bfa00, type: 3}
     enemyShipPrefab: {fileID: 100000, guid: c5c9bd93a45df56498d799ee76bce074, type: 3}
+    asteroidManager: {fileID: 7884160340776852255, guid: 55f32b7267716304fa84c05c186a7eb6, type: 3}
+    enemyShipManager: {fileID: 172352337346063679, guid: 970b3f37f3830b44bbbef73069fdc866, type: 3}
