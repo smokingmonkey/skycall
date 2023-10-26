@@ -26,11 +26,11 @@ MonoBehaviour:
       Frequency: 5
   asteroid:
     spawner:
-      minSpeed: 1
+      minSpeed: 5
       maxSpeed: 8
-      minScale: 15
-      maxScale: 30
-      startingSpawns: 5
+      minScale: 0.7
+      maxScale: 2.5
+      startingSpawns: 3
       maxSpawns: 10
       maxSpawnTime: 60
       maxMass: 7
@@ -41,11 +41,11 @@ MonoBehaviour:
   enemyShip:
     spawner:
       minSpeed: 5
-      maxSpeed: 12
-      minScale: 1.5
-      maxScale: 1.5
+      maxSpeed: 8
+      minScale: 0.7
+      maxScale: 2.5
       startingSpawns: 1
-      maxSpawns: 4
+      maxSpawns: 5
       maxSpawnTime: 60
       maxMass: 7
       minMass: 3
