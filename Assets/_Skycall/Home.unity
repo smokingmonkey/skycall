@@ -843,7 +843,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1418442372
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1745,7 +1745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7336487ddd1944a4f824273cd6115acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeLoad: 3
+  delayBeforeLoad: 6
   objescForhide: {fileID: 1152249168}
 --- !u!1 &44468370755246364
 GameObject:
