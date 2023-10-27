@@ -17,7 +17,10 @@ namespace _Skycall.Scripts.Helpers.Shooting
 
         void Update()
         {
-            if (CanShoot)
+            //Gives randomness to the shooting decision
+            var num = Random.Range(0, 10);
+
+            if (CanShoot && num % 2 == 0)
             {
                 Shoot();
                 _nextFireTime = Time.time + 1f / fireRate;
