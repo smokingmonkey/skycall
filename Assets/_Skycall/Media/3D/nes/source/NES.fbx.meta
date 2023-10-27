@@ -1,0 +1,391 @@
+fileFormatVersion: 2
+guid: c0a77d08549e6bb4ab00b37c144811ee
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: AF_Switch
+    second: {fileID: 2100000, guid: 10dab6fe37f948e4eafb1ad26efa3fbb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Audio_Port
+    second: {fileID: 2100000, guid: edac122a7532e70489eb656549a0230d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Back_&_Side_Stickers
+    second: {fileID: 2100000, guid: 357f6dbb7ca93e64db017fa78a3eb6b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base_Dark_Grey
+    second: {fileID: 2100000, guid: 4ec7e20013241b9459089f7e434c3efd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base_Light_Grey
+    second: {fileID: 2100000, guid: 228f8191422fd7b40908fcae39912122, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bottom_Stickers
+    second: {fileID: 2100000, guid: b6a793a98178ed04baf5689b0ace806d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box_BayouBilly
+    second: {fileID: 2100000, guid: c32132b7fd7a9e543a8fa9da23b25dd5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box_CastleVania
+    second: {fileID: 2100000, guid: b80ec35fa8e8954479d952b58c2c4bd6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box_Contra
+    second: {fileID: 2100000, guid: 6a8b339301980e14e9bf4fe89eaaf2c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box_DoubleDragon
+    second: {fileID: 2100000, guid: b707b7a957b79d7489e43d4ee82d7226, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box_DragonWarrior
+    second: {fileID: 2100000, guid: f6bb75aabd081ce42ab73778d99786e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box_Friday13
+    second: {fileID: 2100000, guid: b3bfd9f3fb6a5ed45b2d7600fc767d56, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box_Gauntlet
+    second: {fileID: 2100000, guid: 17d5f531a93746d468c158250a52cdda, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box_Inside
+    second: {fileID: 2100000, guid: a1e586a4d00fdde49aba185c7ac5cf90, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box_Mario3
+    second: {fileID: 2100000, guid: cf9028d1083066d4da66a66366ed9cf8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box_MegaMan2_30th
+    second: {fileID: 2100000, guid: 98aef4624a7f8a94099d3ead96db4be5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box_Metal_Gear
+    second: {fileID: 2100000, guid: 9c4e40589941a5448bcead96c1938d7c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box_Ninja
+    second: {fileID: 2100000, guid: e48956bb950fe47449ff2c1ffcbd6ac9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box_PunchOut
+    second: {fileID: 2100000, guid: 1d01b097b0217fa48b334e6e4458d696, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box_RoboCop
+    second: {fileID: 2100000, guid: 69178789fb8133b439d55892eea7333d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box_TMNT
+    second: {fileID: 2100000, guid: 3be4f8aaef918824ea6269ca8ba37b95, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box_Tetris
+    second: {fileID: 2100000, guid: ad8be5a1b1eff2c46886b41ebd651da0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box_ZELDA
+    second: {fileID: 2100000, guid: 4f0ac03aeed85f24480a83f13301af2d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box_ZELDAII
+    second: {fileID: 2100000, guid: dd1664d31d2e12d40bd2f509c1b07f4a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CH3_CH4_Switch
+    second: {fileID: 2100000, guid: e4d6364dccaca204abd2c0a486bc4dd7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cart_Bed
+    second: {fileID: 2100000, guid: 774b3c5259c14864582f11346987abfb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cart_Gloss_Blue
+    second: {fileID: 2100000, guid: 51c68539d52ea0a4182ce1b78ed404bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cart_Gloss_Blue.001
+    second: {fileID: 2100000, guid: 56964c60db516bf4ab30b84d3f59b3c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cart_Gloss_Gold
+    second: {fileID: 2100000, guid: ccc0d9776ba9e194ca228bcef1921b9f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cart_Gloss_Grey
+    second: {fileID: 2100000, guid: 123b87668c2ad4148b68668e1cd01ba3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cart_Rough_Blue_Back
+    second: {fileID: 2100000, guid: d3edbdc40daeb15428c897726eef4115, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cart_Rough_Blue_Front
+    second: {fileID: 2100000, guid: 6b1c240b907a9ad479e715424ab1b60b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cart_Rough_Gold
+    second: {fileID: 2100000, guid: 50ecaf5252f870b42a2f6c1d0de72170, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cart_Rough_Gold_Back
+    second: {fileID: 2100000, guid: 43fe04861df479a4989e0bf195d51932, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cart_Rough_Grey
+    second: {fileID: 2100000, guid: 937b756a0ee4a8744b76ada52ce0face, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cart_Rough_Grey_Back
+    second: {fileID: 2100000, guid: 1de8fa15e9ffb764ab7ecd9d09dc56c6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cart_Screws
+    second: {fileID: 2100000, guid: 9e8707e1ba6074c46acf29386de5d897, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Controller_Sticker
+    second: {fileID: 2100000, guid: d356bc5152aa33c46ab08f72e19ac70b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Copper
+    second: {fileID: 2100000, guid: 71697601e8b78e84884a0dc911716310, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cord
+    second: {fileID: 2100000, guid: c6e43dd4b522e834aaaf7da66f8c0061, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: D_Pad
+    second: {fileID: 2100000, guid: 80f711e5a0b2c1043a6a680021154008, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Game_Card
+    second: {fileID: 2100000, guid: ce21de62353c86f4fb34ffdd03f8cec9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gloss_Light_Grey
+    second: {fileID: 2100000, guid: be2205a851689b34c83e2b1e5aa16b91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Interior_Metal
+    second: {fileID: 2100000, guid: 5cd9e2c87d4aff5409a59fa12cdd40a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LED
+    second: {fileID: 2100000, guid: 506ef1e27ed2d924ba1272bee59eb825, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Labels
+    second: {fileID: 2100000, guid: e11104e2a1d714045989f01992d7e6ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Labels_02
+    second: {fileID: 2100000, guid: 2502a642d3d55044d9cb25fa6e962417, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lid
+    second: {fileID: 2100000, guid: 9599c17403035cb49aae9861761b53e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: NES_Bottom
+    second: {fileID: 2100000, guid: 766ce3eb169b58840bd2722a6509d8f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: NES_Top
+    second: {fileID: 2100000, guid: 1887714fca06fbb409ea9179c5a47af9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Player_Pannel
+    second: {fileID: 2100000, guid: 058215f20b319b74baa3f75ad064ee85, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plug
+    second: {fileID: 2100000, guid: e20f5815ed41bf94181f89b162b06ab7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Port_Aluminum
+    second: {fileID: 2100000, guid: a6219dc3701b48f4dac1499d84a6e432, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Power_Reset
+    second: {fileID: 2100000, guid: 5fc741cbbb4e2e345a608ab6585a7e52, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rubber
+    second: {fileID: 2100000, guid: 1052e6a2fa5e4ba44a7c120366bd16bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sticker_Edge
+    second: {fileID: 2100000, guid: e56077a8596d8ef409e1336235937217, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Video_Port
+    second: {fileID: 2100000, guid: f8eee631cbc98a1438b19fab62cbf9ee, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
