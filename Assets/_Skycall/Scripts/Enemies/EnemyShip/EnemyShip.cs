@@ -3,7 +3,9 @@ using _Skycall.Scripts.Helpers;
 using _Skycall.Scripts.Util;
 using ModestTree;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
+using Random = UnityEngine.Random;
 
 namespace _Skycall.Scripts.Enemies.EnemyShip
 {
@@ -13,13 +15,19 @@ namespace _Skycall.Scripts.Enemies.EnemyShip
         Rigidbody _rigidBody;
         Settings _settings;
 
+        private Transform _enemyTarget;
+        private float _lookAtEnemyRotationSpeed;
+
+
         [Inject]
         public void Construct(LevelHelper level, Settings settings)
         {
             _level = level;
             _settings = settings;
             _rigidBody = GetComponent<Rigidbody>();
+            _lookAtEnemyRotationSpeed = Random.Range(0.05f, 0.1f);
         }
+
 
         public Vector3 Position
         {
@@ -58,6 +66,17 @@ namespace _Skycall.Scripts.Enemies.EnemyShip
 
         public override void FixedUpdateEnemy()
         {
+            //When Player ship is near, Enemy Ships Follows it and shot directly to it
+            if (_enemyTarget)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(_enemyTarget.position - transform.position);
+
+                transform.rotation =
+                    Quaternion.Slerp(transform.rotation, targetRotation, _lookAtEnemyRotationSpeed * Time.deltaTime);
+
+                return;
+            }
+
             // Limit speed to a maximum
             var speed = _rigidBody.velocity.magnitude;
 
@@ -70,6 +89,11 @@ namespace _Skycall.Scripts.Enemies.EnemyShip
 
         public override void UpdateEnemy()
         {
+            if (_enemyTarget)
+            {
+                transform.LookAt(_enemyTarget);
+            }
+
             CheckForTeleport();
         }
 
@@ -96,6 +120,24 @@ namespace _Skycall.Scripts.Enemies.EnemyShip
         bool IsMovingInDirection(Vector3 dir)
         {
             return Vector3.Dot(dir, _rigidBody.velocity) > 0;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag(Tags.T_ship))
+            {
+                _enemyTarget = other.transform;
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.CompareTag(Tags.T_ship))
+            {
+                _enemyTarget = null;
+                var dir = transform.forward.normalized;
+                _rigidBody.velocity = dir * _settings.maxSpeed * Random.Range(0.1f, 0.4f);
+            }
         }
 
         [Serializable]
