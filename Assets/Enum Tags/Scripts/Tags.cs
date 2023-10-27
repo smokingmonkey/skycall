@@ -9,4 +9,5 @@ public const string T_Player = @"Player";
 public const string T_GameController = @"GameController";
 public const string T_ship = @"ship";
 public const string T_asteroid = @"asteroid";
+public const string T_shoot = @"shoot";
 }

@@ -594,7 +594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 105034, guid: 58bc3c564721a5046916b82ffd760350, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 413830, guid: 58bc3c564721a5046916b82ffd760350, type: 3}
       propertyPath: m_RootOrder
@@ -884,7 +884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetRotSpeed: 1
-  sunRotSpeed: 1
+  sunRotSpeed: 1.5
   sun: {fileID: 539277935}
   planet: {fileID: 880617979}
 --- !u!1 &943685267
@@ -1495,14 +1495,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6886446632085649066}
-  m_LocalRotation: {x: -0.19111791, y: 0.6807893, z: 0.19111787, w: 0.6807892}
-  m_LocalPosition: {x: -0.81991506, y: -0.42839667, z: -1.4338174}
+  m_LocalRotation: {x: -0.22746702, y: 0.81027, z: 0.14598237, w: 0.52001}
+  m_LocalPosition: {x: -0.819915, y: -0.42839637, z: -1.4338174}
   m_LocalScale: {x: 0.046856787, y: 0.04685678, z: 0.04685678}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 412742776}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -28.238, y: 118.218, z: -14.246}
 --- !u!108 &6886446632085649069
 Light:
   m_ObjectHideFlags: 0

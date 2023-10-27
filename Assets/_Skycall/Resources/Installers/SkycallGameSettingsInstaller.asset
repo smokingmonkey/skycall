@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship:
     StateMoving:
-      moveSpeed: 28
+      moveSpeed: 23
       rotateSpeed: 1
       speedForMaxEmisssion: 30
       maxEmission: 500
