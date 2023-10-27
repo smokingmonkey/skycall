@@ -5,10 +5,8 @@ using Zenject;
 
 namespace _Skycall.Scripts.Level.Collectibles
 {
-    public class Coin : MonoBehaviour, ICollectible
+    public class Coin : ScorerBase, ICollectible
     {
-        public static event Action<float> OnCollected;
-
         private Settings _settings;
 
         [Inject]
@@ -39,8 +37,8 @@ namespace _Skycall.Scripts.Level.Collectibles
 
         public void Collect()
         {
+            ScorerBase.OnScoreHandler(_settings.collectibleValue);
             GameObject.Destroy(this.gameObject);
-            OnCollected?.Invoke(_settings.collectibleValue);
         }
 
         private void OnTriggerEnter(Collider other)

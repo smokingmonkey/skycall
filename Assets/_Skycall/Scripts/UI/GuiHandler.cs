@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using _Skycall.Scripts.GameStateMachine;
+using _Skycall.Scripts.Level.Collectibles;
 using _Skycall.Scripts.Models;
 using TMPro;
 using UnityEngine;
@@ -12,11 +13,11 @@ namespace _Skycall.Scripts.UI
         [SerializeField] private GameObject playingGui;
         [SerializeField] private GameObject gameOverGui;
         [SerializeField] private TMP_Text scoreText;
-        [SerializeField] private TMP_Text elapsedTimeText;
+        [SerializeField] private TMP_Text finalScoreText;
 
 
         private List<GameObject> _guiElements;
-        private float _elapsedTime;
+        private float _score;
 
         private GameStates _currentState;
 
@@ -25,11 +26,13 @@ namespace _Skycall.Scripts.UI
         {
             _guiElements = new List<GameObject>() { waitingToStartGui, playingGui, gameOverGui };
             GameManager.OnGameStateUpdate += OnUpdateGui;
+            ScorerBase.OnScore += UpdateScore;
         }
 
         private void OnDisable()
         {
             GameManager.OnGameStateUpdate -= OnUpdateGui;
+            ScorerBase.OnScore -= UpdateScore;
         }
 
         private void OnUpdateGui(GameStates state)
@@ -44,6 +47,8 @@ namespace _Skycall.Scripts.UI
                 }
                 case GameStates.Playing:
                 {
+                    ResetScore();
+
                     PlayingGui();
                     break;
                 }
@@ -56,20 +61,11 @@ namespace _Skycall.Scripts.UI
             }
         }
 
-        private void Update()
-        {
-            if (_currentState == GameStates.Playing)
-            {
-                _elapsedTime += Time.deltaTime;
-                UpdateElapsedTimeText(_elapsedTime);
-            }
-        }
-
 
         private void StartGui()
         {
             HideGui();
-            _elapsedTime = 0f;
+            ResetScore();
             waitingToStartGui.SetActive(true);
         }
 
@@ -77,25 +73,28 @@ namespace _Skycall.Scripts.UI
         private void PlayingGui()
         {
             HideGui();
-            UpdateElapsedTimeText(0f);
             playingGui.SetActive(true);
         }
 
         private void GameOverGui()
         {
             //HideGui();
-
+            finalScoreText.SetText(_score.ToString());
             gameOverGui.SetActive(true);
         }
 
-        void UpdateScore()
+        void UpdateScore(int value)
         {
+            _score += value;
+            scoreText.SetText(_score.ToString());
         }
 
-        void UpdateElapsedTimeText(float elapsedTime)
+        void ResetScore()
         {
-            elapsedTimeText.SetText(elapsedTime.ToString("F1"));
+            _score = 0;
+            scoreText.SetText(_score.ToString());
         }
+
 
         void HideGui()
         {

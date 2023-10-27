@@ -17,13 +17,13 @@ namespace _Skycall.Scripts.Audio
         void Start()
         {
             Explosion.OnExplosion += OnPlayExplosion;
-            Coin.OnCollected += OnPlayCoin;
+            ScorerBase.OnScore += OnPlayCoin;
         }
 
         void OnDisable()
         {
             Explosion.OnExplosion -= OnPlayExplosion;
-            Coin.OnCollected += OnPlayCoin;
+            ScorerBase.OnScore -= OnPlayCoin;
         }
 
         void OnPlayExplosion()
@@ -31,7 +31,7 @@ namespace _Skycall.Scripts.Audio
             sfxAudioSource.PlayOneShot(explosion.AudioClip);
         }
 
-        void OnPlayCoin(float f)
+        void OnPlayCoin(int i)
         {
             sfxAudioSource.PlayOneShot(coin.AudioClip);
         }
