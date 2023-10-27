@@ -1,5 +1,6 @@
 using System;
 using _Skycall.Scripts.Helpers;
+using _Skycall.Scripts.Helpers.Shooting;
 using _Skycall.Scripts.Models;
 using _Skycall.Scripts.Player.Ship.States;
 using _Skycall.Scripts.Util;
@@ -16,6 +17,9 @@ namespace _Skycall.Scripts.Player.Ship
         [SerializeField] private ParticleSystem _particleSystem;
 
         [SerializeField] private GameObject _explosion;
+
+        [SerializeField] private ClickShootingBehaviour _weapon;
+        private IShootBehaviour WeaponBase => _weapon;
 
         private ShipStateFactory _stateFactory;
         private ShipState _state;
@@ -98,6 +102,15 @@ namespace _Skycall.Scripts.Player.Ship
 
             _state = _stateFactory.CreateState(state);
             _state.Start();
+
+            if (state == ShipStates.Moving)
+            {
+                WeaponBase.Init();
+            }
+            else
+            {
+                WeaponBase.Stop();
+            }
         }
 
         public void OnShipCrashed()

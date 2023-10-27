@@ -1,9 +1,9 @@
 using System;
 using _Skycall.Scripts.Helpers;
+using _Skycall.Scripts.Helpers.Shooting;
 using _Skycall.Scripts.Util;
 using ModestTree;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 using Random = UnityEngine.Random;
 
@@ -17,6 +17,10 @@ namespace _Skycall.Scripts.Enemies.EnemyShip
 
         private Transform _enemyTarget;
         private float _lookAtEnemyRotationSpeed;
+        
+      [SerializeField] private AutoShootingBehaviour weapon;
+
+      private IShootBehaviour Weapon => weapon;
 
 
         [Inject]
@@ -91,8 +95,10 @@ namespace _Skycall.Scripts.Enemies.EnemyShip
         {
             if (_enemyTarget)
             {
+                Weapon.Init();
                 transform.LookAt(_enemyTarget);
             }
+            Weapon.Stop();
 
             CheckForTeleport();
         }
