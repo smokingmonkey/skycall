@@ -17,10 +17,12 @@ namespace _Skycall.Scripts.Enemies.EnemyShip
 
         private Transform _enemyTarget;
         private float _lookAtEnemyRotationSpeed;
-        
-      [SerializeField] private AutoShootingBehaviour weapon;
 
-      private IShootBehaviour Weapon => weapon;
+        [SerializeField] private RadarSphere radar;
+
+        [SerializeField] private AutoShootingBehaviour weapon;
+
+        private IShootBehaviour Weapon => weapon;
 
 
         [Inject]
@@ -29,7 +31,7 @@ namespace _Skycall.Scripts.Enemies.EnemyShip
             _level = level;
             _settings = settings;
             _rigidBody = GetComponent<Rigidbody>();
-            _lookAtEnemyRotationSpeed = Random.Range(0.05f, 0.1f);
+            _lookAtEnemyRotationSpeed = Random.Range(0.05f, 0.4f);
         }
 
 
@@ -93,11 +95,15 @@ namespace _Skycall.Scripts.Enemies.EnemyShip
 
         public override void UpdateEnemy()
         {
+            _enemyTarget = radar.FoundObject(Tags.T_ship);
+
             if (_enemyTarget)
             {
                 Weapon.Init();
                 transform.LookAt(_enemyTarget);
             }
+
+
             Weapon.Stop();
 
             CheckForTeleport();
@@ -128,23 +134,6 @@ namespace _Skycall.Scripts.Enemies.EnemyShip
             return Vector3.Dot(dir, _rigidBody.velocity) > 0;
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.CompareTag(Tags.T_ship))
-            {
-                _enemyTarget = other.transform;
-            }
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.CompareTag(Tags.T_ship))
-            {
-                _enemyTarget = null;
-                var dir = transform.forward.normalized;
-                _rigidBody.velocity = dir * _settings.maxSpeed * Random.Range(0.1f, 0.4f);
-            }
-        }
 
         [Serializable]
         public class Settings

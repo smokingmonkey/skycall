@@ -11,4 +11,5 @@ public const string T_ship = @"ship";
 public const string T_asteroid = @"asteroid";
 public const string T_shoot = @"shoot";
 public const string T_enemyShip = @"enemyShip";
+public const string T_EnemyInside = @"EnemyInside";
 }

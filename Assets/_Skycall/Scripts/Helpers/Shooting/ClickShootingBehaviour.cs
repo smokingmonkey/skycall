@@ -6,25 +6,22 @@ namespace _Skycall.Scripts.Helpers.Shooting
     {
         [SerializeField] private BulletPool pool;
         [SerializeField] private Transform firePoint;
-        [SerializeField] private float fireRate = 0.5f;
 
-        private float _nextFireTime = 0f;
         private bool _started;
 
-        private bool CanShoot => _started && Input.GetMouseButtonDown(0) && Time.time > _nextFireTime;
+        private bool CanShoot => _started && Input.GetMouseButtonDown(0);
 
         void Update()
         {
             if (CanShoot)
             {
                 Shoot();
-                _nextFireTime = Time.time + 1f / fireRate;
             }
         }
 
         public void Shoot()
         {
-            pool.GetBullet(firePoint.position, firePoint.rotation);
+            pool.GetBullet(firePoint);
         }
 
         public void Init()

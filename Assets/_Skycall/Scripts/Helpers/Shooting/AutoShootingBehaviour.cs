@@ -10,7 +10,7 @@ namespace _Skycall.Scripts.Helpers.Shooting
 
         private bool _started;
 
-        
+
         private float _nextFireTime = 0f;
 
         private bool CanShoot => _started && Time.time > _nextFireTime;
@@ -19,6 +19,8 @@ namespace _Skycall.Scripts.Helpers.Shooting
         {
             if (CanShoot)
             {
+                Debug.Log("autoshot");
+
                 Shoot();
                 _nextFireTime = Time.time + 1f / fireRate;
             }
@@ -26,7 +28,9 @@ namespace _Skycall.Scripts.Helpers.Shooting
 
         public void Shoot()
         {
-            pool.GetBullet(firePoint.position, firePoint.rotation);
+            Debug.Log("Onshooooooo");
+
+            pool.GetBullet(firePoint);
         }
 
         public void Init()
