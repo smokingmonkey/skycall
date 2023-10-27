@@ -10,12 +10,15 @@ namespace _Skycall.Scripts.Helpers.Shooting
         private Queue<Bullet> _pool = new Queue<Bullet>();
         [SerializeField] private int poolMaxSize;
 
+        private List<GameObject> _bullets = new List<GameObject>();
+
         private void Start()
         {
             for (int i = 0; i < poolMaxSize; i++)
             {
                 GameObject go = Instantiate(bulletPrefab);
                 go.SetActive(false);
+                _bullets.Add(go);
 
                 Bullet bullet = go.GetComponent<Bullet>();
                 bullet.owner = this;
@@ -41,6 +44,14 @@ namespace _Skycall.Scripts.Helpers.Shooting
         {
             bullet.gameObject.SetActive(false);
             _pool.Enqueue(bullet);
+        }
+
+        private void OnDisable()
+        {
+            foreach (var bullet in _bullets)
+            {
+                Destroy(bullet.gameObject);
+            }
         }
     }
 }

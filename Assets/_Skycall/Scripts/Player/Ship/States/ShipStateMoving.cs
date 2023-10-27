@@ -1,6 +1,7 @@
 using System;
 using _Skycall.Scripts.Enemies.Asteroid;
 using _Skycall.Scripts.Enemies.EnemyShip;
+using _Skycall.Scripts.Helpers.Shooting;
 using _Skycall.Scripts.Models;
 using ModestTree;
 using UnityEngine;
@@ -67,8 +68,15 @@ namespace _Skycall.Scripts.Player.Ship.States
 
         public override void OnTriggerEnter(Collider other)
         {
-            if (other.GetComponent<Asteroid>() == null) return;
-            _ship.ChangeState(ShipStates.Dead);
+            if (other.GetComponent<Asteroid>() != null)
+            {
+                _ship.ChangeState(ShipStates.Dead);
+            }
+            
+            if (other.GetComponent<Bullet>() != null)
+            {
+                _ship.ChangeState(ShipStates.Dead);
+            }
         }
 
         [Serializable]

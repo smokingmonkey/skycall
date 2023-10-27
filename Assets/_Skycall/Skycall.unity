@@ -1282,6 +1282,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ship
       objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 2f9b4a13b18ec8443ad67c2592e1c91c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 2f9b4a13b18ec8443ad67c2592e1c91c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1362,6 +1366,10 @@ PrefabInstance:
       propertyPath: explosionParticleSystem
       value: 
       objectReference: {fileID: 394895381}
+    - target: {fileID: 5566319324255538546, guid: 2f9b4a13b18ec8443ad67c2592e1c91c, type: 3}
+      propertyPath: poolMaxSize
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 8970264043352879440, guid: 2f9b4a13b18ec8443ad67c2592e1c91c, type: 3}
       propertyPath: explosion
       value: 

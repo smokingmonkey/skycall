@@ -1,3 +1,4 @@
+using _Skycall.Scripts.Helpers.Shooting;
 using _Skycall.Scripts.Level.Collectibles;
 using UnityEngine;
 
@@ -16,7 +17,7 @@ namespace _Skycall.Scripts.Enemies.EnemyShip
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag(Tags.T_shoot))
+            if (other.CompareTag(Tags.T_shoot) &&  !other.GetComponent<Bullet>().isEnemy)
             {
                 ScorerBase.OnScoreHandler(ScoreValue);
             }

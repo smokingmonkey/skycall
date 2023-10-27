@@ -21,7 +21,7 @@ namespace _Skycall.Scripts.Enemies.Asteroid
         float _timeIntervalBetweenSpawns;
         bool _started;
 
-        [InjectOptional] bool _autoSpawn = false;
+        [InjectOptional] bool _autoSpawn = true;
 
         [Inject]
         public void Construct(

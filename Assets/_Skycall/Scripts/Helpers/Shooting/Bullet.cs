@@ -8,8 +8,7 @@ namespace _Skycall.Scripts.Helpers.Shooting
     {
         public BulletPool owner;
         [SerializeField] private float speed;
-        [SerializeField] private bool isEnemy;
-        [SerializeField] private Explosion explosion;
+        [SerializeField] public bool isEnemy;
 
         private float _recyclingTime = 4f;
 
@@ -26,18 +25,31 @@ namespace _Skycall.Scripts.Helpers.Shooting
 
         void Update()
         {
-            transform.Translate(transform.forward * (speed * Time.deltaTime));
+            if (!isEnemy)
+            {
+                transform.Translate(transform.forward * (speed * Time.deltaTime));
+            }
+            else
+            {
+                transform.Translate(transform.right * (speed * Time.deltaTime));
+
+            }
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (isEnemy && other.CompareTag(Tags.T_ship) || other.CompareTag(Tags.T_asteroid))
+            if (isEnemy && other.CompareTag(Tags.T_ship))
             {
-                other.gameObject.SetActive(false);
-
                 Recycle();
             }
-            else if (other.CompareTag(Tags.T_enemyShip) || other.CompareTag(Tags.T_asteroid))
+
+            if (!isEnemy && other.CompareTag(Tags.T_enemyShip))
+            {
+                other.gameObject.SetActive(false);
+                Recycle();
+            }
+
+            if (other.CompareTag(Tags.T_asteroid))
             {
                 other.gameObject.SetActive(false);
                 Recycle();

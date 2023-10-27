@@ -27,12 +27,12 @@ MonoBehaviour:
   asteroid:
     spawner:
       minSpeed: 2
-      maxSpeed: 22
+      maxSpeed: 19.12
       minScale: 0.7
       maxScale: 4.49
       startingSpawns: 3
-      maxSpawns: 15
-      maxSpawnTime: 60
+      maxSpawns: 12
+      maxSpawnTime: 40
       maxMass: 8.33
       minMass: 2.34
     general:
@@ -41,12 +41,12 @@ MonoBehaviour:
   enemyShip:
     spawner:
       minSpeed: 1
-      maxSpeed: 8
+      maxSpeed: 12
       minScale: 2
       maxScale: 3
-      startingSpawns: 3
-      maxSpawns: 10
-      maxSpawnTime: 40
+      startingSpawns: 5
+      maxSpawns: 20
+      maxSpawnTime: 30
       maxMass: 13.87
       minMass: 3
     general:

@@ -15,12 +15,12 @@ GameObject:
   - component: {fileID: 8804335835402452340}
   - component: {fileID: 7356815590249943959}
   m_Layer: 0
-  m_Name: EnemyBullet
+  m_Name: PlayerBullet 1
   m_TagString: shoot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8804335835402452328
 Transform:
   m_ObjectHideFlags: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
-  speed: 10
+  speed: 8
   isEnemy: 1
 --- !u!1001 &8804335836924428000
 PrefabInstance:
@@ -139,21 +139,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8804335835402452328}
     m_Modifications:
+    - target: {fileID: 1826968114201480892, guid: 797f6d3e29ada9748b46a02a726b6dbf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f512ef4e6e9322945aa6e82f2f4083bf, type: 2}
     - target: {fileID: 1827529229155617962, guid: 797f6d3e29ada9748b46a02a726b6dbf, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
       value: 1.48
       objectReference: {fileID: 0}
     - target: {fileID: 1827529229155617962, guid: 797f6d3e29ada9748b46a02a726b6dbf, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.13264179
-      objectReference: {fileID: 0}
-    - target: {fileID: 1827529229155617962, guid: 797f6d3e29ada9748b46a02a726b6dbf, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1827529229155617962, guid: 797f6d3e29ada9748b46a02a726b6dbf, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
+      propertyPath: InitialModule.startColor.maxColor.g
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1827529229155617962, guid: 797f6d3e29ada9748b46a02a726b6dbf, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.15063715
       objectReference: {fileID: 0}
     - target: {fileID: 1986046891302573190, guid: 797f6d3e29ada9748b46a02a726b6dbf, type: 3}
       propertyPath: m_RootOrder
