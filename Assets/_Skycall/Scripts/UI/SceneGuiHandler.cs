@@ -6,20 +6,15 @@ using UnityEngine;
 
 namespace _Skycall.Scripts.UI
 {
-    public class GuiHandler : MonoBehaviour
+    public class SceneGuiHandler : MonoBehaviour
     {
         [SerializeField] private GameObject waitingToStartGui;
         [SerializeField] private GameObject playingGui;
         [SerializeField] private GameObject gameOverGui;
-        [SerializeField] private TMP_Text scoreText;
-        [SerializeField] private TMP_Text elapsedTimeText;
-
 
         private List<GameObject> _guiElements;
-        private float _elapsedTime;
 
         private GameStates _currentState;
-
 
         private void Start()
         {
@@ -56,53 +51,32 @@ namespace _Skycall.Scripts.UI
             }
         }
 
-        private void Update()
-        {
-            if (_currentState == GameStates.Playing)
-            {
-                _elapsedTime += Time.deltaTime;
-                UpdateElapsedTimeText(_elapsedTime);
-            }
-        }
-
-
         private void StartGui()
         {
             HideGui();
-            _elapsedTime = 0f;
-            waitingToStartGui.SetActive(true);
+            if (waitingToStartGui != null) waitingToStartGui.SetActive(true);
         }
-
 
         private void PlayingGui()
         {
             HideGui();
-            UpdateElapsedTimeText(0f);
-            playingGui.SetActive(true);
+            if (playingGui != null) playingGui.SetActive(true);
         }
 
         private void GameOverGui()
         {
-            //HideGui();
+            HideGui();
 
-            gameOverGui.SetActive(true);
-        }
-
-        void UpdateScore()
-        {
-        }
-
-        void UpdateElapsedTimeText(float elapsedTime)
-        {
-            elapsedTimeText.SetText(elapsedTime.ToString("F1"));
+            if (gameOverGui != null) gameOverGui.SetActive(true);
         }
 
         void HideGui()
         {
-            foreach (var element in _guiElements)
-            {
-                element.SetActive(false);
-            }
+            if (_guiElements != null)
+                foreach (var element in _guiElements)
+                {
+                    element.SetActive(false);
+                }
         }
     }
 }

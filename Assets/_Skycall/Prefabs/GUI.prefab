@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 2468673958450142201}
   - component: {fileID: 2468673958450142202}
   - component: {fileID: 2468673958450142203}
+  - component: {fileID: 6659408203139711122}
   m_Layer: 5
   m_Name: GUI
   m_TagString: Untagged
@@ -256,6 +257,21 @@ MonoBehaviour:
   gameOverGui: {fileID: 2468673958769324927}
   scoreText: {fileID: 2468673959194657340}
   elapsedTimeText: {fileID: 2468673958223609393}
+--- !u!114 &6659408203139711122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2468673958450142204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce30f8b52fe2e343bbeeb15ec7c9842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitingToStartGui: {fileID: 0}
+  playingGui: {fileID: 0}
+  gameOverGui: {fileID: 0}
 --- !u!1 &2468673958769324927
 GameObject:
   m_ObjectHideFlags: 0
