@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f9dd8e9c6f3b474692241d6bbec8e1d, type: 3}
+  m_Name: SkycallGameSettingsInstaller
+  m_EditorClassIdentifier: 
+  Ship:
+    StateMoving:
+      moveSpeed: 23
+      rotateSpeed: 1
+      speedForMaxEmisssion: 30
+      maxEmission: 500
+      oscillationFrequency: 1
+      oscillationAmplitude: 0.1
+    StateStarting:
+      StartOffset: {x: 0, y: 0, z: 0}
+      Amplitude: 0.25
+      Frequency: 5
+  asteroid:
+    spawner:
+      minSpeed: 2
+      maxSpeed: 19.12
+      minScale: 0.7
+      maxScale: 4.49
+      startingSpawns: 3
+      maxSpawns: 12
+      maxSpawnTime: 40
+      maxMass: 8.33
+      minMass: 2.34
+    general:
+      massScaleFactor: 0.1
+      maxSpeed: 18
+  enemyShip:
+    spawner:
+      minSpeed: 1
+      maxSpeed: 12
+      minScale: 2
+      maxScale: 3
+      startingSpawns: 5
+      maxSpawns: 20
+      maxSpawnTime: 30
+      maxMass: 13.87
+      minMass: 3
+    general:
+      massScaleFactor: 0.1
+      maxSpeed: 18
+  gameInstaller:
+    asteroidPrefab: {fileID: 100000, guid: 2c2b3b79cbd4f2c478dc270cc06bfa00, type: 3}
+    coinPrefab: {fileID: 716950831877477547, guid: a56b7d55360e37f4a8960041592b663e, type: 3}
+    enemyShipPrefab: {fileID: 100000, guid: c5c9bd93a45df56498d799ee76bce074, type: 3}
+    asteroidManager: {fileID: 7884160340776852255, guid: 55f32b7267716304fa84c05c186a7eb6, type: 3}
+    enemyShipManager: {fileID: 172352337346063679, guid: 970b3f37f3830b44bbbef73069fdc866, type: 3}
+    coinSpawner: {fileID: 6146880924566963060, guid: 95f1a50775c89944daedd7a301e7e47d, type: 3}
+    guiHandler: {fileID: 2468673958450142204, guid: 0dedcc3b4fa38d645937878364994ea4, type: 3}
+  coinSettings:
+    general:
+      collectibleValue: 5
+      duration: 5
+  coinSpawnerSettings:
+    general:
+      collectibleValue: 5
+      startingSpawns: 5
+      maxSpawns: 100
+      maxSpawnTime: 6
