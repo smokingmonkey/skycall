@@ -34,20 +34,20 @@ MonoBehaviour:
       maxSpawns: 15
       maxSpawnTime: 60
       maxMass: 8.33
-      minMass: 1.51
+      minMass: 2.34
     general:
       massScaleFactor: 0.1
       maxSpeed: 18
   enemyShip:
     spawner:
-      minSpeed: 5
+      minSpeed: 1
       maxSpeed: 8
-      minScale: 0.7
-      maxScale: 2.5
-      startingSpawns: 1
-      maxSpawns: 5
-      maxSpawnTime: 60
-      maxMass: 7
+      minScale: 2
+      maxScale: 3
+      startingSpawns: 3
+      maxSpawns: 10
+      maxSpawnTime: 40
+      maxMass: 13.87
       minMass: 3
     general:
       massScaleFactor: 0.1
