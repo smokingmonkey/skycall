@@ -7,7 +7,7 @@ namespace _Skycall.Scripts.Scenes
     public class SlideShow : MonoBehaviour
     {
         public List<GameObject> objects;
-        public float coolDoownTime = 3.0f;
+        public float coolDownTime = 6.0f;
         private int currentObject = 0;
 
         void Start()
@@ -26,15 +26,21 @@ namespace _Skycall.Scripts.Scenes
 
         IEnumerator ChangeObject()
         {
-            while (true)
+            while (currentObject < objects.Count)
             {
-                yield return new WaitForSeconds(coolDoownTime);
-
+                yield return new WaitForSeconds(coolDownTime);
+                if (currentObject == objects.Count -1)
+                {
+                    yield break;
+                }
                 objects[currentObject].SetActive(false);
 
-                currentObject = (currentObject + 1) % objects.Count;
+                currentObject = (currentObject + 1);
 
-                Init(currentObject);
+                if (currentObject < objects.Count)
+                {
+                    Init(currentObject);
+                }
             }
         }
     }
