@@ -26,10 +26,10 @@ MonoBehaviour:
       Frequency: 5
   asteroid:
     spawner:
-      minSpeed: 2
-      maxSpeed: 19.12
+      minSpeed: 0.5
+      maxSpeed: 18
       minScale: 0.7
-      maxScale: 4.49
+      maxScale: 4
       startingSpawns: 3
       maxSpawns: 12
       maxSpawnTime: 40
@@ -44,8 +44,8 @@ MonoBehaviour:
       maxSpeed: 12
       minScale: 2
       maxScale: 3
-      startingSpawns: 5
-      maxSpawns: 20
+      startingSpawns: 2
+      maxSpawns: 10
       maxSpawnTime: 30
       maxMass: 13.87
       minMass: 3

@@ -16,7 +16,6 @@ namespace _Skycall.Scripts.Enemies.EnemyShip
         Settings _settings;
 
         private Transform _enemyTarget;
-        private float _lookAtEnemyRotationSpeed;
 
         [SerializeField] private RadarSphere radar;
 
@@ -31,7 +30,6 @@ namespace _Skycall.Scripts.Enemies.EnemyShip
             _level = level;
             _settings = settings;
             _rigidBody = GetComponent<Rigidbody>();
-            _lookAtEnemyRotationSpeed = Random.Range(0.05f, 0.4f);
         }
 
 
@@ -70,18 +68,44 @@ namespace _Skycall.Scripts.Enemies.EnemyShip
             set { _rigidBody.velocity = value; }
         }
 
+        public override void UpdateEnemy()
+        {
+            CheckForTeleport();
+
+            _enemyTarget = radar.FoundObject(Tags.T_ship);
+            //When Player ship is near, Enemy Ships Follows it and shot directly to it
+
+            if (_enemyTarget)
+            {
+                Vector3 targetPosition =
+                    new Vector3(_enemyTarget.position.x, _enemyTarget.position.y, transform.position.z);
+
+                transform.LookAt(targetPosition);
+
+                //Enemy ship starts shooting
+                StarShooting();
+                return;
+            }
+
+            //When player is lost Enemy ship stops shooting
+            StopShooting();
+        }
+
+        void StarShooting()
+        {
+            Weapon.Init();
+        }
+
+        void StopShooting()
+        {
+            Weapon.Stop();
+        }
+
         public override void FixedUpdateEnemy()
         {
             //When Player ship is near, Enemy Ships Follows it and shot directly to it
-            if (_enemyTarget)
-            {
-                Quaternion targetRotation = Quaternion.LookRotation(_enemyTarget.position - transform.position);
+            if (_enemyTarget) return;
 
-                transform.rotation =
-                    Quaternion.Slerp(transform.rotation, targetRotation, _lookAtEnemyRotationSpeed * Time.deltaTime);
-
-                return;
-            }
 
             // Limit speed to a maximum
             var speed = _rigidBody.velocity.magnitude;
@@ -93,21 +117,6 @@ namespace _Skycall.Scripts.Enemies.EnemyShip
             }
         }
 
-        public override void UpdateEnemy()
-        {
-            _enemyTarget = radar.FoundObject(Tags.T_ship);
-
-            if (_enemyTarget)
-            {
-                Weapon.Init();
-                transform.LookAt(_enemyTarget);
-            }
-
-
-            Weapon.Stop();
-
-            CheckForTeleport();
-        }
 
         protected override void CheckForTeleport()
         {

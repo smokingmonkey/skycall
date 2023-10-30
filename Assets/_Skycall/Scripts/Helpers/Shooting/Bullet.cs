@@ -25,15 +25,7 @@ namespace _Skycall.Scripts.Helpers.Shooting
 
         void Update()
         {
-            if (!isEnemy)
-            {
-                transform.Translate(transform.forward * (speed * Time.deltaTime));
-            }
-            else
-            {
-                transform.Translate(transform.right * (speed * Time.deltaTime));
-
-            }
+            transform.Translate(transform.up * (speed * Time.deltaTime), Space.World);
         }
 
         private void OnTriggerEnter(Collider other)
