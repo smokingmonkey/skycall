@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace PlanetShader.Script.Tools
+namespace ThirdPartyAssets.PlanetShader.Script.Tools
 {
     public class ShowOffSceneManager : MonoBehaviour
     {
@@ -8,7 +8,6 @@ namespace PlanetShader.Script.Tools
         public float sunRotSpeed = 1.0f;
         public Transform sun;
 
-        private int index = 0;
         [SerializeField] private GameObject planet;
 
 

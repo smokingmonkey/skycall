@@ -107,7 +107,7 @@ namespace _Skycall.Scripts.Enemies.Asteroid
             public float maxSpeed;
         }
 
-        public class Factory : PlaceholderFactory<Asteroid>
+        public new class Factory : PlaceholderFactory<Asteroid>
         {
         }
     }

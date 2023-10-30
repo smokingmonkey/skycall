@@ -142,7 +142,7 @@ namespace _Skycall.Scripts.Enemies.EnemyShip
             public float maxSpeed;
         }
 
-        public class Factory : PlaceholderFactory<EnemyShip>
+        public new class Factory : PlaceholderFactory<EnemyShip>
         {
         }
     }
