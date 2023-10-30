@@ -438,6 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8c4d33c0bce2844b0c11208a00e7c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startDelay: 0.5
 --- !u!114 &19328979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1138,6 +1139,38 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -41.30005
       objectReference: {fileID: 0}
+    - target: {fileID: 649918560, guid: 0dedcc3b4fa38d645937878364994ea4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -137.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 649918561, guid: 0dedcc3b4fa38d645937878364994ea4, type: 3}
+      propertyPath: m_text
+      value: 'Controles:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 649918561, guid: 0dedcc3b4fa38d645937878364994ea4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 649918561, guid: 0dedcc3b4fa38d645937878364994ea4, type: 3}
+      propertyPath: m_fontSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 649918561, guid: 0dedcc3b4fa38d645937878364994ea4, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906095817, guid: 0dedcc3b4fa38d645937878364994ea4, type: 3}
+      propertyPath: m_text
+      value: WASD + Click
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906095817, guid: 0dedcc3b4fa38d645937878364994ea4, type: 3}
+      propertyPath: m_fontSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906095817, guid: 0dedcc3b4fa38d645937878364994ea4, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 22
+      objectReference: {fileID: 0}
     - target: {fileID: 2101806690, guid: 0dedcc3b4fa38d645937878364994ea4, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1257,6 +1290,14 @@ PrefabInstance:
     - target: {fileID: 2468673959229903416, guid: 0dedcc3b4fa38d645937878364994ea4, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2468673959382351030, guid: 0dedcc3b4fa38d645937878364994ea4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909058221989385742, guid: 0dedcc3b4fa38d645937878364994ea4, type: 3}
+      propertyPath: m_text
+      value: 'Score final:'
       objectReference: {fileID: 0}
     - target: {fileID: 6659408203139711122, guid: 0dedcc3b4fa38d645937878364994ea4, type: 3}
       propertyPath: playingGui

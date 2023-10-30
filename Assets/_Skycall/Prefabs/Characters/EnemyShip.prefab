@@ -134,6 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radar: {fileID: 4149571488295543363}
   weapon: {fileID: 8862791925803868919}
+  rotationSpeed: 3.5
 --- !u!114 &5976017100888862742
 MonoBehaviour:
   m_ObjectHideFlags: 0

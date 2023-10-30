@@ -5,7 +5,6 @@ using _Skycall.Scripts.Util;
 using ModestTree;
 using UnityEngine;
 using Zenject;
-using Random = UnityEngine.Random;
 
 namespace _Skycall.Scripts.Enemies.EnemyShip
 {
@@ -20,6 +19,7 @@ namespace _Skycall.Scripts.Enemies.EnemyShip
         [SerializeField] private RadarSphere radar;
 
         [SerializeField] private AutoShootingBehaviour weapon;
+        [SerializeField] private float rotationSpeed;
 
         private IShootBehaviour Weapon => weapon;
 
@@ -91,6 +91,39 @@ namespace _Skycall.Scripts.Enemies.EnemyShip
             StopShooting();
         }
 
+
+        public override void FixedUpdateEnemy()
+        {
+            //When Player's Ship is near, Enemy Ships Follows it and shot directly to it
+            if (_enemyTarget) return;
+
+            AlignTransformToMovement();
+
+            // Limit speed to a maximum
+            LimitSpeed();
+        }
+
+        void AlignTransformToMovement()
+        {
+            var velocity = _rigidBody.velocity;
+            Quaternion targetRotation = Quaternion.LookRotation(velocity.normalized);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation,
+                Time.deltaTime * rotationSpeed);
+        }
+
+        void LimitSpeed()
+        {
+            var velocity = _rigidBody.velocity;
+            var speed = velocity.magnitude;
+
+            if (speed > _settings.maxSpeed)
+            {
+                var dir = _rigidBody.velocity / speed;
+                _rigidBody.velocity = dir * _settings.maxSpeed;
+            }
+        }
+
         void StarShooting()
         {
             Weapon.Init();
@@ -99,22 +132,6 @@ namespace _Skycall.Scripts.Enemies.EnemyShip
         void StopShooting()
         {
             Weapon.Stop();
-        }
-
-        public override void FixedUpdateEnemy()
-        {
-            //When Player ship is near, Enemy Ships Follows it and shot directly to it
-            if (_enemyTarget) return;
-
-
-            // Limit speed to a maximum
-            var speed = _rigidBody.velocity.magnitude;
-
-            if (speed > _settings.maxSpeed)
-            {
-                var dir = _rigidBody.velocity / speed;
-                _rigidBody.velocity = dir * _settings.maxSpeed;
-            }
         }
 
 

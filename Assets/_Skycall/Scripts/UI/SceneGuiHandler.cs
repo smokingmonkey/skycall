@@ -1,7 +1,6 @@
-using System.Collections.Generic;
+    using System.Collections.Generic;
 using _Skycall.Scripts.GameStateMachine;
 using _Skycall.Scripts.Models;
-using TMPro;
 using UnityEngine;
 
 namespace _Skycall.Scripts.UI

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using _Skycall.Scripts.Enemies.Asteroid;
 using _Skycall.Scripts.Enemies.EnemyShip;
 using _Skycall.Scripts.Level.Collectibles;
@@ -22,6 +23,7 @@ namespace _Skycall.Scripts.GameStateMachine
 
         GameStates _state = GameStates.WaitingToStart;
         float _elapsedTime;
+        [SerializeField] private float startDelay = 0.05f;
 
         [Inject]
         public void Construct(Ship ship, AsteroidManager asteroidManager,
@@ -94,8 +96,14 @@ namespace _Skycall.Scripts.GameStateMachine
 
             if (Input.GetMouseButtonDown(0) || Input.anyKeyDown)
             {
-                StartGame();
+                StartCoroutine(StartGameWithDelay(startDelay));
             }
+        }
+
+        private IEnumerator StartGameWithDelay(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            StartGame();
         }
 
         void OnShipCrashed()
@@ -122,7 +130,7 @@ namespace _Skycall.Scripts.GameStateMachine
 
             if (Input.GetMouseButtonDown(0) || Input.anyKeyDown)
             {
-                StartGame();
+                StartCoroutine(StartGameWithDelay(startDelay));
             }
         }
 

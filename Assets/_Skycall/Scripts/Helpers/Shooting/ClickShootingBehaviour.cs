@@ -9,7 +9,8 @@ namespace _Skycall.Scripts.Helpers.Shooting
 
         private bool _started;
 
-        private bool CanShoot => _started && Input.GetMouseButtonDown(0);
+        private bool CanShoot => _started && (Input.GetMouseButtonDown(0)
+                                              || Input.GetKeyDown(KeyCode.Space));
 
         void Update()
         {

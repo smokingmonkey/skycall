@@ -25,7 +25,7 @@ namespace _Skycall.Scripts.Level.Collectibles
             _timeToNextSpawn = settings.maxSpawnTime;
         }
 
-        [InjectOptional] bool _autoSpawn = true;
+        [InjectOptional] bool _autoSpawn = false;
 
 
         public void StartGame()
